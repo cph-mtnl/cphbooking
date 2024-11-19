@@ -1,4 +1,16 @@
 .whiteBtn{
-    background-color: black;
+    background-color: transparent;
+    color: #6eb47e;
+    border: 2px solid #6eb47e;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
+.whiteBtn:hover {
+    background-color: #6eb47e;
+    color: white;
+  }
 

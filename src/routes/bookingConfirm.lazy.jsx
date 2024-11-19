@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { createLazyFileRoute } from '@tanstack/react-router'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import ButtonStyles from '../components/ButtonStyles.css';
+import '../components/ButtonStyles.css';
 
 export const Route = createLazyFileRoute('/bookingConfirm')({
   component: RouteComponent,
