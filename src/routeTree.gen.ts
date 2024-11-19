@@ -16,16 +16,62 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const AboutLazyImport = createFileRoute('/about')()
+const SummaryLazyImport = createFileRoute('/summary')()
+const StudentTeacherLazyImport = createFileRoute('/studentTeacher')()
+const MyBookingsLazyImport = createFileRoute('/myBookings')()
+const LoginTeacherLazyImport = createFileRoute('/loginTeacher')()
+const LoginStudentLazyImport = createFileRoute('/loginStudent')()
+const BookingConfirmLazyImport = createFileRoute('/bookingConfirm')()
+const BookingLazyImport = createFileRoute('/booking')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
 
-const AboutLazyRoute = AboutLazyImport.update({
-  id: '/about',
-  path: '/about',
+const SummaryLazyRoute = SummaryLazyImport.update({
+  id: '/summary',
+  path: '/summary',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/summary.lazy').then((d) => d.Route))
+
+const StudentTeacherLazyRoute = StudentTeacherLazyImport.update({
+  id: '/studentTeacher',
+  path: '/studentTeacher',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/studentTeacher.lazy').then((d) => d.Route),
+)
+
+const MyBookingsLazyRoute = MyBookingsLazyImport.update({
+  id: '/myBookings',
+  path: '/myBookings',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/myBookings.lazy').then((d) => d.Route))
+
+const LoginTeacherLazyRoute = LoginTeacherLazyImport.update({
+  id: '/loginTeacher',
+  path: '/loginTeacher',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/loginTeacher.lazy').then((d) => d.Route))
+
+const LoginStudentLazyRoute = LoginStudentLazyImport.update({
+  id: '/loginStudent',
+  path: '/loginStudent',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/loginStudent.lazy').then((d) => d.Route))
+
+const BookingConfirmLazyRoute = BookingConfirmLazyImport.update({
+  id: '/bookingConfirm',
+  path: '/bookingConfirm',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/bookingConfirm.lazy').then((d) => d.Route),
+)
+
+const BookingLazyRoute = BookingLazyImport.update({
+  id: '/booking',
+  path: '/booking',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/booking.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   id: '/',
@@ -44,11 +90,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutLazyImport
+    '/booking': {
+      id: '/booking'
+      path: '/booking'
+      fullPath: '/booking'
+      preLoaderRoute: typeof BookingLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/bookingConfirm': {
+      id: '/bookingConfirm'
+      path: '/bookingConfirm'
+      fullPath: '/bookingConfirm'
+      preLoaderRoute: typeof BookingConfirmLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/loginStudent': {
+      id: '/loginStudent'
+      path: '/loginStudent'
+      fullPath: '/loginStudent'
+      preLoaderRoute: typeof LoginStudentLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/loginTeacher': {
+      id: '/loginTeacher'
+      path: '/loginTeacher'
+      fullPath: '/loginTeacher'
+      preLoaderRoute: typeof LoginTeacherLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/myBookings': {
+      id: '/myBookings'
+      path: '/myBookings'
+      fullPath: '/myBookings'
+      preLoaderRoute: typeof MyBookingsLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/studentTeacher': {
+      id: '/studentTeacher'
+      path: '/studentTeacher'
+      fullPath: '/studentTeacher'
+      preLoaderRoute: typeof StudentTeacherLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/summary': {
+      id: '/summary'
+      path: '/summary'
+      fullPath: '/summary'
+      preLoaderRoute: typeof SummaryLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -58,37 +146,92 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
-  '/about': typeof AboutLazyRoute
+  '/booking': typeof BookingLazyRoute
+  '/bookingConfirm': typeof BookingConfirmLazyRoute
+  '/loginStudent': typeof LoginStudentLazyRoute
+  '/loginTeacher': typeof LoginTeacherLazyRoute
+  '/myBookings': typeof MyBookingsLazyRoute
+  '/studentTeacher': typeof StudentTeacherLazyRoute
+  '/summary': typeof SummaryLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
-  '/about': typeof AboutLazyRoute
+  '/booking': typeof BookingLazyRoute
+  '/bookingConfirm': typeof BookingConfirmLazyRoute
+  '/loginStudent': typeof LoginStudentLazyRoute
+  '/loginTeacher': typeof LoginTeacherLazyRoute
+  '/myBookings': typeof MyBookingsLazyRoute
+  '/studentTeacher': typeof StudentTeacherLazyRoute
+  '/summary': typeof SummaryLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
-  '/about': typeof AboutLazyRoute
+  '/booking': typeof BookingLazyRoute
+  '/bookingConfirm': typeof BookingConfirmLazyRoute
+  '/loginStudent': typeof LoginStudentLazyRoute
+  '/loginTeacher': typeof LoginTeacherLazyRoute
+  '/myBookings': typeof MyBookingsLazyRoute
+  '/studentTeacher': typeof StudentTeacherLazyRoute
+  '/summary': typeof SummaryLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths:
+    | '/'
+    | '/booking'
+    | '/bookingConfirm'
+    | '/loginStudent'
+    | '/loginTeacher'
+    | '/myBookings'
+    | '/studentTeacher'
+    | '/summary'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to:
+    | '/'
+    | '/booking'
+    | '/bookingConfirm'
+    | '/loginStudent'
+    | '/loginTeacher'
+    | '/myBookings'
+    | '/studentTeacher'
+    | '/summary'
+  id:
+    | '__root__'
+    | '/'
+    | '/booking'
+    | '/bookingConfirm'
+    | '/loginStudent'
+    | '/loginTeacher'
+    | '/myBookings'
+    | '/studentTeacher'
+    | '/summary'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
-  AboutLazyRoute: typeof AboutLazyRoute
+  BookingLazyRoute: typeof BookingLazyRoute
+  BookingConfirmLazyRoute: typeof BookingConfirmLazyRoute
+  LoginStudentLazyRoute: typeof LoginStudentLazyRoute
+  LoginTeacherLazyRoute: typeof LoginTeacherLazyRoute
+  MyBookingsLazyRoute: typeof MyBookingsLazyRoute
+  StudentTeacherLazyRoute: typeof StudentTeacherLazyRoute
+  SummaryLazyRoute: typeof SummaryLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
-  AboutLazyRoute: AboutLazyRoute,
+  BookingLazyRoute: BookingLazyRoute,
+  BookingConfirmLazyRoute: BookingConfirmLazyRoute,
+  LoginStudentLazyRoute: LoginStudentLazyRoute,
+  LoginTeacherLazyRoute: LoginTeacherLazyRoute,
+  MyBookingsLazyRoute: MyBookingsLazyRoute,
+  StudentTeacherLazyRoute: StudentTeacherLazyRoute,
+  SummaryLazyRoute: SummaryLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -102,14 +245,38 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/booking",
+        "/bookingConfirm",
+        "/loginStudent",
+        "/loginTeacher",
+        "/myBookings",
+        "/studentTeacher",
+        "/summary"
       ]
     },
     "/": {
       "filePath": "index.lazy.jsx"
     },
-    "/about": {
-      "filePath": "about.lazy.jsx"
+    "/booking": {
+      "filePath": "booking.lazy.jsx"
+    },
+    "/bookingConfirm": {
+      "filePath": "bookingConfirm.lazy.jsx"
+    },
+    "/loginStudent": {
+      "filePath": "loginStudent.lazy.jsx"
+    },
+    "/loginTeacher": {
+      "filePath": "loginTeacher.lazy.jsx"
+    },
+    "/myBookings": {
+      "filePath": "myBookings.lazy.jsx"
+    },
+    "/studentTeacher": {
+      "filePath": "studentTeacher.lazy.jsx"
+    },
+    "/summary": {
+      "filePath": "summary.lazy.jsx"
     }
   }
 }

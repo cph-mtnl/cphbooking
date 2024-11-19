@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // Mantine Providers
 import { MantineProvider } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
@@ -22,13 +22,18 @@ declare module "@tanstack/react-router" {
 }
 
 export default function App() {
+  const [userInfo, setUserInfo] = useState(undefined);
+
+  const context = {
+    supabase: getSupabaseClient(),
+    userInfo,
+    setUserInfo,
+  };
+
   return (
     <MantineProvider>
       <ModalsProvider>
-        <RouterProvider
-          router={router}
-          context={{ supabase: getSupabaseClient() }}
-        />
+        <RouterProvider basepath="/cphbooking" router={router} context={context} />
       </ModalsProvider>
     </MantineProvider>
   );
