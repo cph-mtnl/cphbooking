@@ -1,23 +1,23 @@
 import * as React from 'react'
 import { createLazyFileRoute } from '@tanstack/react-router'
-import {Container} from 'postcss/lib/container'
-import '../components/LoginForm.module.css'
+import { Container, Button } from "@mantine/core";
+import styles from '../components/LoginForm.module.css'
 import '../components/ButtonStyles.css'
-import { useRouteContext } from '@tanstack/react-router';
 
 export const Route = createLazyFileRoute('/studentTeacher')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const context = useRouteContext(); // Ensure useRouteContext is used to get context
 
   return (
-    <Container>
+    <Container className={styles.container}>
       <h1>BOOK LOKALE</h1>
       <h3>Log ind som</h3>
-      <button className='greenBtn' onClick={() => context.navigate('/loginTeacher')}>Underviser</button>
-      <button className='greenBtn' onClick={() => context.navigate('/loginStudent')}>Studerende</button>
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: "30px"}}>
+      <Button size="lg" className='greenBtn' onClick={() => context.navigate("/loginTeacher")}>Underviser</Button>
+      <Button size="lg" className='greenBtn' onClick={() => context.navigate("/loginStudent")}>Studerende</Button>
+      </div>
     </Container>
   )
 }

@@ -2,6 +2,7 @@ import * as React from 'react'
 import { createLazyFileRoute } from '@tanstack/react-router'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../components/ButtonStyles.css';
+import { Button } from '@mantine/core';
 
 export const Route = createLazyFileRoute('/bookingConfirm')({
   component: RouteComponent,
@@ -13,7 +14,7 @@ function RouteComponent() {
 
         <i style={{fontSize: "250px", color: "#6eb47e"}}className="fa-solid fa-circle-check"></i>
         <p style={{fontSize: "40px"}}>Booking bekræftet!</p>
-        <button className='whiteBtn' onClick={() => context.navigate("/")}>Tilbage til forsiden</button>
+        <Button size="lg" className='whiteBtn' onClick={() => context.navigate("/")}>Tilbage til forsiden</Button>
 
     </div>
   )

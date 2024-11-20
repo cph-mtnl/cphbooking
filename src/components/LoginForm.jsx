@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouteContext } from "@tanstack/react-router";
 import styles from "./LoginForm.module.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../components/ButtonStyles.css';
 
 
 export default function LoginForm() {
@@ -50,7 +51,7 @@ export default function LoginForm() {
   return (
     <div>
       <Container className={styles.container}>
-        <button variant="transparent" onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</button>
+        <Button size="lg" className='transparentBtn' onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</Button>
         <h1>Log ind</h1>
         <form onSubmit={handleLogin} id="login-form">
           <TextInput 
@@ -75,7 +76,9 @@ export default function LoginForm() {
             size="lg"
             className="narrow-textarea"
           />
-          <Button onClick={handleLogin}>Log ind</Button>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
+          <Button size="lg" className='greenBtn' onClick={handleLogin}>Log ind</Button>
+          </div>
         </form>
       </Container>
     </div>

@@ -3,11 +3,16 @@
     color: #6eb47e;
     border: 2px solid #6eb47e;
     border-radius: 25px;
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+.placement{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
 
 .whiteBtn:hover {
     background-color: #6eb47e;
@@ -19,7 +24,6 @@
     color: white;
     border: 2px solid white;
     border-radius: 25px;
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -28,7 +32,13 @@
 .greenBtn:hover {
     background-color: white;
     color: #6eb47e;
-  }
+}
+
+.transparentBtn{
+    background-color: transparent;
+    border: none;
+    color: white; 
+}
 
 
 
