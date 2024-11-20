@@ -3,14 +3,13 @@ import { Container } from "@mantine/core";
 import { useState } from "react";
 import { useRouteContext } from "@tanstack/react-router";
 import styles from "./LoginForm.module.css";
-
-
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import { createRoute, RouterProvider, useRouteContext } from "@tanstack/react-router";
+import { createBrowserRouter } from "@tanstack/router";
 
 export default function LoginForm() {
   const context = useRouteContext({ from: "/login" });
-  const [name, setName] = useState("");
+  const [name] = useState("");
 
   const containerProps = {
     bg: "var(--mantine-color-blue-light)",
@@ -44,7 +43,6 @@ export default function LoginForm() {
     // 2. Siden ændrer sig
     // Redirecter til /index
     context.navigate("/booking");
-
   }
 
   return (

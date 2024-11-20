@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 export default function NewCalendar() {
     const [selected, setSelected] = useState([]);
   
-
     const handleSelect = (date) => {
       const isSelected = selected.some((s) => dayjs(date).isSame(s, 'date'));
       if (isSelected) {
