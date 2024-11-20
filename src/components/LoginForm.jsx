@@ -4,23 +4,24 @@ import { useState } from "react";
 import { useRouteContext } from "@tanstack/react-router";
 import styles from "./LoginForm.module.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { createRoute, RouterProvider, useRouteContext } from "@tanstack/react-router";
-import { createBrowserRouter } from "@tanstack/router";
+
 
 export default function LoginForm() {
-  const context = useRouteContext({ from: "/login" });
-  const [name] = useState("");
+  const context = useRouteContext({ from: "/loginStudent" });
+  const [name, setName] = useState("");
+  const [emailError, setEmailError] = useState("");
+ 
 
-  const containerProps = {
-    bg: "var(--mantine-color-blue-light)",
-    mt: "md",
-  };
 
   async function handleLogin(event) {
     event.preventDefault();
     const formData = new FormData(document.querySelector("#login-form"));
     const email = formData.get("email");
     const password = formData.get("password");
+
+    if (email === '' || email.indexOf("@") === -1) {
+      setEmailError("Forkert email")
+    }
 
     console.log(name);
     console.log(email);
@@ -40,6 +41,7 @@ export default function LoginForm() {
 
     context.setUserInfo(userInfo);
 
+
     // 2. Siden ændrer sig
     // Redirecter til /index
     context.navigate("/booking");
@@ -47,7 +49,7 @@ export default function LoginForm() {
 
   return (
     <div>
-      <Container className={styles.container} {...containerProps}>
+      <Container className={styles.container}>
         <button variant="transparent" onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</button>
         <h1>Log ind</h1>
         <form onSubmit={handleLogin} id="login-form">
@@ -57,8 +59,10 @@ export default function LoginForm() {
           placeholder="Mail" 
           name="email" 
           required
+
           size="lg" 
           />
+          {emailError && <span class="error">Forkert email</span>}
 
           <PasswordInput
             label="Password"
@@ -66,6 +70,8 @@ export default function LoginForm() {
             placeholder="Password"
             name="password"
             required
+            error="Invalid name"
+
             size="lg"
             className="narrow-textarea"
           />

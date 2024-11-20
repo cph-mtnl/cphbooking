@@ -32,18 +32,13 @@ const avatarStyle = {
 
 function RootRouteWithLayout() {
   return (
-    
     <>
       <div style={navBarStyle}>
-
       <Avatar style={avatarStyle} variant="transparent" radius="xl" size="xl" color="#6eb47e" src="" />
 
-        
         <Link style={navBarStyle} to="/booking">Ny booking</Link>
         <Link style={navBarStyle} to="/">Mine bookinger</Link>
         <Link style={navBarStyle} to="/loginStudent">Mine bookinger</Link>
-
-    
 
         <div style={{marginLeft: "auto"}}>
           <Link style={navBarStyle} to="/">Log ud</Link>
