@@ -11,6 +11,13 @@
     color: white;
 }
 
+.container h3{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 50px;
+}
+
 .narrow-textarea {
     width: 50px !important;  
     color: white !important;
