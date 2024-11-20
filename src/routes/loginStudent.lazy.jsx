@@ -8,7 +8,7 @@ export const Route = createLazyFileRoute('/loginStudent')({
 function RouteComponent() {
   return (
     <div>
-      <div>{context.userInfo.name ?? 'No name'}</div>
+      {/* <div>{context.userInfo.name ?? 'No name'}</div> */}
       <LoginForm />
     </div>
   )

@@ -30,12 +30,11 @@ function StyledStepper(props) {
             backgroundColor: '#f1f3f5',
           },
   
-          separator: {
-            marginLeft: rem(-2),
-            marginRight: rem(-2),
-            height: rem(10),
-            backgroundColor: '#6eb47e'
-          },
+          separator: (theme, {active, index}) =>({
+            backgroundColor: active > index ? '#6eb47e' : '#f1f3f5',
+            height: rem(4),
+            flexGrow: 1,
+          }),
 
           separatorInactive:{
             backgroundColor: '#f1f3f5',
