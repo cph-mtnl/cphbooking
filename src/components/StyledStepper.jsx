@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Stepper, rem } from '@mantine/core';
 
 function StyledStepper(props) {
@@ -7,38 +6,31 @@ function StyledStepper(props) {
         styles={{
           stepBody: {
             display: 'block',
-            
+            marginTop: rem(8),
+            marginLeft: rem(0),
+            textAlign: 'center',
           },
   
           step: {
             padding: 0,
             display: 'flex',
             flexDirection: 'column',
-
+            justifyContent: 'center',
+            alignItems: 'center',
           },
   
-          stepIcon: {
+          stepIconActive: {
             borderWidth: rem(4),
             borderColor: '#6eb47e',
             backgroundColor: '#6eb47e',
             color: 'white',
           },
-          
-          stepIconInactive:{
-            borderColor: '#f1f3f5',
-            color: 'black',
-            backgroundColor: '#f1f3f5',
-          },
   
-          separator: (theme, {active, index}) =>({
-            backgroundColor: active > index ? '#6eb47e' : '#f1f3f5',
+          separator: {
             height: rem(4),
-            flexGrow: 1,
-          }),
-
-          separatorInactive:{
-            backgroundColor: '#f1f3f5',
-          },
+            flexGrow: 1, 
+            margin: '0 -30px 25px -30px',
+          }
 
         }}
         {...props}

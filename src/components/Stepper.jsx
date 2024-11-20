@@ -6,12 +6,14 @@ function Stepper() {
   const [active, setActive] = useState(1);
 
   return (
-    <StyledStepper active={active} onStepClick={setActive}>
+    <div style={{width: "30%"}}>
+    <StyledStepper active={active} onStepClick={setActive} color="#6eb47e">
       <MantineStepper.Step label="Log ind"/>
       <MantineStepper.Step label="Book lokale"/>
       <MantineStepper.Step label="Bekræft"/>
       <MantineStepper.Step label="Udført"/>
     </StyledStepper>
+    </div>
   );
 }
 
