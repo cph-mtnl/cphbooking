@@ -59,7 +59,7 @@ export default function LoginForm() {
           description="Skriv din skolemail" 
           placeholder="Mail" 
           name="email" 
-          required
+          withAsterisk
 
           size="lg" 
           />
@@ -70,7 +70,7 @@ export default function LoginForm() {
             description="Skriv dit password"
             placeholder="Password"
             name="password"
-            required
+            withAsterisk
             error="Invalid name"
 
             size="lg"
