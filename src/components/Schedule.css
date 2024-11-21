@@ -1,0 +1,33 @@
+.schedule-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #F5F3F3;
+    color: black;
+    font-weight: 200;
+    font-size: 14px;
+  }
+  
+  .schedule-table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .schedule-table th,
+  .schedule-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border: 0.5px black solid;
+    font-weight: 200;  
+  }
+  
+  .schedule-table th {
+    background-color: #ffeb99;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+  }
+  
+  .schedule-table td.busy-slot {
+    background-color: #ff6b6b;
+  }

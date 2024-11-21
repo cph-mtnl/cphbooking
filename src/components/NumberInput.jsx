@@ -10,7 +10,7 @@ function numberInput() {
     <NumberInput
       label="Antal deltagere "
       withAsterisk
-      placeholder="Input placeholder"
+      min={0}
     />
     </div>
   );
