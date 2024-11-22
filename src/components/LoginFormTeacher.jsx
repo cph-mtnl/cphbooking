@@ -1,19 +1,17 @@
 import { TextInput, PasswordInput, Button } from "@mantine/core";
 import { Container } from "@mantine/core";
 import { useState } from "react";
-import { useRouteContext } from "@tanstack/react-router";
+import { Link, useRouteContext } from "@tanstack/react-router";
 import styles from "./LoginForm.module.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../components/ButtonStyles.css';
 
-
 export default function LoginForm() {
-  const context = useRouteContext({ from: "/loginStudent" });
+  const context = useRouteContext({ from: "/loginTeacher" });
   const [name, setName] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
  
-
-
   async function handleLogin(event) {
     event.preventDefault();
     const formData = new FormData(document.querySelector("#login-form"));
@@ -22,6 +20,10 @@ export default function LoginForm() {
 
     if (email === '' || email.indexOf("@") === -1) {
       setEmailError("Forkert email")
+    }
+
+    if (password === '') {
+      setPasswordError("Forkert password")
     }
 
     console.log(name);
@@ -51,31 +53,47 @@ export default function LoginForm() {
   return (
     <div>
       <Container className={styles.container}>
-        <Button size="lg" className='transparentBtn' onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</Button>
+
+        <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: '',}}>
+        <Link to="/studentTeacher">
+            <Button size="lg" className='transparentBtn' onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</Button>
+        </Link>
+        </div>
         <h1>Log ind</h1>
         <form onSubmit={handleLogin} id="login-form">
-          <TextInput 
+          <TextInput style={{color: "white"}}
           label="Mail" 
-          description="Skriv din skolemail" 
+          description = "Skriv din arbejdsmail" 
           placeholder="Mail" 
           name="email" 
           withAsterisk
 
+          styles={{
+            description: {
+              color: 'white',
+            },
+          }}
+
           size="lg" 
           />
-          {emailError && <span class="error">Forkert email</span>}
+          {emailError && <span style={{color: "red"}} className="error">Forkert email</span>}
 
-          <PasswordInput
+          <PasswordInput style={{padding: "40px 0px", color: "white"}}
             label="Password"
             description="Skriv dit password"
             placeholder="Password"
             name="password"
             withAsterisk
-            error="Invalid name"
-
             size="lg"
-            className="narrow-textarea"
+
+            styles={{
+              description: {
+                color: 'white',
+              },
+            }}
           />
+          {passwordError && <span style={{color: "red"}} className="error">Forkert password</span>}
+
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
           <Button size="lg" className='greenBtn' onClick={handleLogin}>Log ind</Button>
           </div>

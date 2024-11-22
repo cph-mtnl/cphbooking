@@ -38,7 +38,20 @@
     background-color: transparent;
     border: none;
     color: white; 
+    position: fixed;
+    left: 520px;
+    font-weight: 300;
+    
 }
+
+.transparentBtn:hover{
+    background-color: transparent;
+}
+
+.fa-chevron-left{
+    padding-right: 10px;
+}
+
 
 
 

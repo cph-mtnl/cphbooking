@@ -8,6 +8,7 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { colorsTuple } from "@mantine/core";
 import { Avatar } from '@mantine/core';
 
+
 export interface RouterContext extends Record<any, any> {
   supabase: any;
 }

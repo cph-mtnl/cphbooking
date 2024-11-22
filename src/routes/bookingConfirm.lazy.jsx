@@ -14,7 +14,7 @@ function RouteComponent() {
 
         <i style={{fontSize: "250px", color: "#6eb47e"}}className="fa-solid fa-circle-check"></i>
         <p style={{fontSize: "40px"}}>Booking bekræftet!</p>
-        <Button size="lg" className='whiteBtn' onClick={() => context.navigate("/")}>Tilbage til forsiden</Button>
+        <Button size="lg" className='whiteBtn' onClick={() => context.navigate("/")}>Gå til mine bookinger</Button>
 
     </div>
   )
