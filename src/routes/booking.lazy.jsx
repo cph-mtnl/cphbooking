@@ -21,6 +21,9 @@ function RouteComponent() {
   // const context = useRouteContext({ from: "/booking" });
   const [datePicked, setDatePicked] = useState(dayjs());
   const [bookings, setBookings] = useState({});
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [selectedRoom, setSelectedRoom] = useState("");
 
   useEffect(() => {
     getBookings();

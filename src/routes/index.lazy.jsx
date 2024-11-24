@@ -1,4 +1,5 @@
 import { createLazyFileRoute, useRouteContext } from "@tanstack/react-router";
+import FrontPageNavbar from "../components/FrontPageNavbar";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -10,7 +11,7 @@ function Index() {
 
   return (
     <div>
-      <h3>Welcome Home!</h3>
+      <FrontPageNavbar/>
     </div>
   );
 }

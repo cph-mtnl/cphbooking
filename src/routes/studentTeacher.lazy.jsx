@@ -16,7 +16,6 @@ export const Route = createLazyFileRoute('/studentTeacher')({
 
 function RouteComponent() {
 
-
   return (
     <Container className={styles.container}>
       <h1>BOOK LOKALE</h1>

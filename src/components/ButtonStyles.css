@@ -38,8 +38,8 @@
     background-color: transparent;
     border: none;
     color: white; 
-    position: fixed;
-    left: 520px;
+    cursor: pointer;
+    right: 50px;
     font-weight: 300;
     
 }
