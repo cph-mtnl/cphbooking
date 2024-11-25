@@ -27,7 +27,7 @@ export default function NavBar(){
         <Link style={navBarStyle} to="/_layout/myBookings">Mine bookinger</Link>
 
         <div style={{marginLeft: "auto"}}>
-          <Link style={navBarStyle} to="/">Log ud</Link>
+          <Link style={navBarStyle} to="/studentTeacher">Log ud</Link>
         </div>
       </div>
     )
