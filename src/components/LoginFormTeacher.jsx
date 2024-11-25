@@ -3,7 +3,8 @@ import { Container } from "@mantine/core";
 import { useState } from "react";
 import { Link, useRouteContext } from "@tanstack/react-router";
 import styles from "./LoginForm.module.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import '../components/ButtonStyles.css';
 
 export default function LoginForm() {
@@ -61,7 +62,7 @@ export default function LoginForm() {
             {/* Tilbage knappen på log ind formen */}
             <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: '',}}>
                 <Link to="/studentTeacher">
-                    <Button size="lg" className='transparentBtn' onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</Button>
+                    <Button size="lg" className='transparentBtn' onClick={() => context.navigate("/")}> <FontAwesomeIcon icon={faChevronLeft}/> Tilbage</Button>
                 </Link>
             </div>
         
