@@ -77,10 +77,6 @@ function FrontPageFooter() {
         backgroundColor: "#fbb041",
         margin: "20px 0",
       },
-    //   footerBottom: {
-    //     textAlign: "center",
-    //     fontSize: "14px",
-    //   },
       language:{
         fontSize: "18px",
         paddingBottom: "30px",
@@ -100,7 +96,7 @@ function FrontPageFooter() {
   
     return (
       <footer style={styles.footer}>
-        {/* Top section with logo and links */}
+        {/* Top section with logo and icons */}
         <div style={styles.footerTop}>
             <div style={styles.footerLogoSection}>
                 <img style={styles.footerLogo} src="/cphbooking/img/cphlogo.webp" alt="Cphbusiness logo" />
@@ -121,6 +117,7 @@ function FrontPageFooter() {
             </div>
         </div>
           <div style={styles.footerLinks}>
+            {/* Hurtig adgang section */}
             <div style={styles.footerColumn}>
               <h4 style={styles.footerColumnHeader}>Hurtig adgang til:</h4>
               <ul style={styles.footerColumnList}>
@@ -138,6 +135,7 @@ function FrontPageFooter() {
                 </li>
               </ul>
             </div>
+            {/* Læringsværktøjer section */}
             <div style={styles.footerColumn}>
               <h4 style={styles.footerColumnHeader}>Læringsværktøjer:</h4>
               <ul style={styles.footerColumnList}>
@@ -163,6 +161,7 @@ function FrontPageFooter() {
                 </li>
               </ul>
             </div>
+            {/* specielt for studerende section */}
             <div style={styles.footerColumn}>
               <h4 style={styles.footerColumnHeader}>Specielt for studerende:</h4>
               <ul style={styles.footerColumnList}>

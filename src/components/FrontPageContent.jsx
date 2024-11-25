@@ -3,7 +3,6 @@ import NewCalendar from "./NewCalendar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
-
 function FrontPageContent() {
     const styles = {
         container: {
@@ -27,10 +26,6 @@ function FrontPageContent() {
             minWidth: "250px",
             margin: "10px",
             padding: "15px",
-            // backgroundColor: "#f9f9f9",
-            // border: "1px solid #ddd",
-            // borderRadius: "8px",
-            // boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         },
         sectionTitle: {
             fontSize: "18px",
@@ -38,10 +33,6 @@ function FrontPageContent() {
             color: "#444",
             paddingBottom: "5px",
         },
-        // upcomingEvents: {
-        //     fontSize: "14px",
-        //     lineHeight: "1.5",
-        // },
         calendarLink: {
             color: "#0073e6",
             textDecoration: "none",
@@ -79,10 +70,6 @@ function FrontPageContent() {
                 {/* Upcoming Events Section */}
                 <div style={styles.section}>
                     <h4 style={styles.sectionTitle}>Kommende begivenheder</h4>
-                    {/* <div style={styles.upcomingEvents}>
-                        <p>Upload af personlige udviklingsplan (i morgen, 12:00)</p>
-                        <a href="#" style={styles.calendarLink}>Gå til kalenderen ...</a>
-                    </div> */}
                 </div>
 
                 {/* Flows Section */}
