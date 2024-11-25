@@ -1,8 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faBell, faMagnifyingGlass, faComment, faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "@tanstack/react-router";
+import { useState } from "react"; 
 
-const styles = {
+function FrontPageNavbar() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const styles = {
     navbar: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -14,9 +18,10 @@ const styles = {
         height: '100px',
         borderBottom: '5px solid #fbb041',
       },
-    brandText: {
-        fontWeight: 'bold',
-    }, 
+    logo: {
+        width: 'auto',
+        height: '80px',
+      },
     separator: {
         width: '1px',
         height: '24px',
@@ -38,6 +43,7 @@ const styles = {
         padding: '8px 16px',
         color: 'white',
         cursor: 'pointer',
+        textDecoration: isHovered ? "underline" : "none",
       },
     rightSection: {
         display: 'flex',
@@ -72,18 +78,22 @@ const styles = {
         fontSize: '20px',
         cursor: 'pointer',
       },
-}
-function FrontPageNavbar() {
+  }
+
     return (
         <nav style={styles.navbar}>
             <div>
-                <img src="#" alt="Cphbusiness logo" />
-                <span style={styles.brandText}>Cphbusiness</span>
+                <img style={styles.logo} src="/cphbooking/img/cphlogo.webp" alt="Cphbusiness logo" />
             </div>
 
             <div style={styles.rightSection}>
             <Link to={"/studentTeacher"}>
-            <button style={styles.BookLokaleButton}>Book Lokale</button>
+            <button
+            style={styles.BookLokaleButton}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            >Book Lokale
+            </button>
             </Link>
             <div>
                 <span>Links</span>

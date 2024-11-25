@@ -1,4 +1,4 @@
-import { createLazyFileRoute, useRouteContext} from '@tanstack/react-router'
+import { createLazyFileRoute, useRouteContext } from '@tanstack/react-router'
 import LoginFormStudent from '../components/LoginFormStudent'
 
 export const Route = createLazyFileRoute('/loginStudent')({

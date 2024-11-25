@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Combobox, Input, InputBase, useCombobox } from '@mantine/core';
 import classes from './DropdownPositionStyles.module.css';
 
-const startTime = [
+const startTimeTable = [
   '08:00',
   '09:00',
   '10:00',
@@ -15,14 +15,13 @@ const startTime = [
   '17:00',
 ];
 
-export default function DropdownPositionStyles() {
+export default function DropdownPositionStyles({startTime, setStartTime}) {
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
 
-  const [value, setValue] = useState(null);
 
-  const options = startTime.map((item) => (
+  const options = startTimeTable.map((item) => (
     <Combobox.Option value={item} key={item}>
       {item}
     </Combobox.Option>
@@ -34,7 +33,7 @@ export default function DropdownPositionStyles() {
       withinPortal={false}
       offset={0}
       onOptionSubmit={(val) => {
-        setValue(val);
+        setStartTime(val);
         combobox.closeDropdown();
       }}
     >
@@ -50,7 +49,7 @@ export default function DropdownPositionStyles() {
           rightSectionPointerEvents="none"
           classNames={{ input: classes.input }}
         >
-          {value || <Input.Placeholder>Vælg startstidspunkt</Input.Placeholder>}
+          {startTime || <Input.Placeholder>Vælg startstidspunkt</Input.Placeholder>}
         </InputBase>
       </Combobox.Target>
 

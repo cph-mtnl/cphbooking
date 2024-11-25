@@ -10,12 +10,12 @@ const lokaler = [
   'Lokale 3.14',
 ];
 
-export default function DropdownPositionStyles() {
+export default function DropdownPositionStyles({selectedRoom, setSelectedRoom}) {
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
 
-  const [value, setValue] = useState(null);
+
 
   const options = lokaler.map((item) => (
     <Combobox.Option value={item} key={item}>
@@ -29,7 +29,7 @@ export default function DropdownPositionStyles() {
       withinPortal={false}
       offset={0}
       onOptionSubmit={(val) => {
-        setValue(val);
+        setSelectedRoom(val);
         combobox.closeDropdown();
       }}
     >
@@ -45,7 +45,7 @@ export default function DropdownPositionStyles() {
           rightSectionPointerEvents="none"
           classNames={{ input: classes.input }}
         >
-          {value || <Input.Placeholder>Vælg lokale</Input.Placeholder>}
+          {selectedRoom || <Input.Placeholder>Vælg lokale</Input.Placeholder>}
         </InputBase>
       </Combobox.Target>
 
