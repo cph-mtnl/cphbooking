@@ -18,10 +18,12 @@ export default function LoginForm() {
     const email = formData.get("email");
     const password = formData.get("password");
 
+    // Tjekker om mail feltet er tomt og om der er blevet brugt @, hvis ikke kommer der en fejlbesked
     if (email === '' || email.indexOf("@") === -1) {
       setEmailError("Forkert email")
     }
 
+    // Tjekker om password er tomt, og kommer med fejlbesked, hvis det er tomt. 
     if (password === '') {
       setPasswordError("Forkert password")
     }
@@ -52,53 +54,54 @@ export default function LoginForm() {
 
   return (
     <div>
-      <Container className={styles.container}>
 
-        <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: '',}}>
-        <Link to="/studentTeacher">
-            <Button size="lg" className='transparentBtn' onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</Button>
-        </Link>
-        </div>
-        <h1>Log ind</h1>
-        <form onSubmit={handleLogin} id="login-form">
-          <TextInput style={{color: "white"}}
-          label="Mail" 
-          description = "Skriv din arbejdsmail" 
-          placeholder="Mail" 
-          name="email" 
-          withAsterisk
+        {/* Log ind formen, som vi kalder container */}
+        <Container className={styles.container}>
 
-          styles={{
-            description: {
-              color: 'white',
-            },
-          }}
+            {/* Tilbage knappen på log ind formen */}
+            <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: '',}}>
+                <Link to="/studentTeacher">
+                    <Button size="lg" className='transparentBtn' onClick={() => context.navigate("/")}> <i className="fas fa-chevron-left"></i> Tilbage</Button>
+                </Link>
+            </div>
+        
+            <h1>Log ind</h1>
+            <form onSubmit={handleLogin} id="login-form">
+                <TextInput style={{color: "white"}}
+                label="Mail" 
+                description = "Skriv din arbejdsmail" 
+                placeholder="Mail" 
+                name="email" 
+                withAsterisk
+                size="lg" 
+                styles={{
+                    description: {
+                    color: 'white',
+                    },
+                }}
+                />
+                {emailError && <span style={{color: "red"}} className="error">Forkert email</span>}
 
-          size="lg" 
-          />
-          {emailError && <span style={{color: "red"}} className="error">Forkert email</span>}
+                <PasswordInput style={{padding: "40px 0px", color: "white"}}
+                    label="Password"
+                    description="Skriv dit password"
+                    placeholder="Password"
+                    name="password"
+                    withAsterisk
+                    size="lg"
+                    styles={{
+                    description: {
+                        color: 'white',
+                        },
+                    }}
+                    />
+                {passwordError && <span style={{color: "red"}} className="error">Forkert password</span>}
 
-          <PasswordInput style={{padding: "40px 0px", color: "white"}}
-            label="Password"
-            description="Skriv dit password"
-            placeholder="Password"
-            name="password"
-            withAsterisk
-            size="lg"
-
-            styles={{
-              description: {
-                color: 'white',
-              },
-            }}
-          />
-          {passwordError && <span style={{color: "red"}} className="error">Forkert password</span>}
-
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
-          <Button size="lg" className='greenBtn' onClick={handleLogin}>Log ind</Button>
-          </div>
-        </form>
-      </Container>
+                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
+                    <Button size="lg" className='greenBtn' onClick={handleLogin}>Log ind</Button>
+                </div>
+            </form>
+        </Container>
     </div>
   );
 }

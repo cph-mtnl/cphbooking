@@ -34,24 +34,23 @@
     color: #6eb47e;
 }
 
+/* Tilbage knappen på login formen */
 .transparentBtn{
     background-color: transparent;
     border: none;
     color: white; 
-    cursor: pointer;
-    right: 50px;
+    position: fixed;
+    left: 520px;
     font-weight: 300;
     
+>>>>>>> 76031b5435f6293e3c8ac5ad314c5ff4262312d2
 }
 
 .transparentBtn:hover{
     background-color: transparent;
 }
 
+/* Ikonet ved tilbage knappen */
 .fa-chevron-left{
     padding-right: 10px;
 }
-
-
-
-
