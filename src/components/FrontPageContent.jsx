@@ -21,12 +21,6 @@ function FrontPageContent() {
             justifyContent: "space-between",
             padding: "20px",
         },
-        section: {
-            flex: "1",
-            minWidth: "250px",
-            margin: "10px",
-            padding: "15px",
-        },
         sectionTitle: {
             fontSize: "18px",
             marginBottom: "15px",
@@ -62,7 +56,7 @@ function FrontPageContent() {
             />
             <div style={styles.contentContainer}>
                 {/* Calendar Section */}
-                <div style={styles.section}>
+                <div>
                     <h4 style={styles.sectionTitle}>Kalender</h4>
                     <NewCalendar />
                 </div>

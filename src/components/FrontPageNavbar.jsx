@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faBell, faMagnifyingGlass, faComment, faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faBell, faMagnifyingGlass, faComment, faBookOpenReader, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "@tanstack/react-router";
 import { useState } from "react"; 
 
@@ -102,7 +102,7 @@ function FrontPageNavbar() {
             <div style={styles.separator}></div>
             <button style={styles.mineFlowsButton}>Mine Flows</button>
             <div style={styles.profileDropdown}>
-                <div style={styles.profileCircle}>LK</div>
+                <div style={styles.profileCircle}><FontAwesomeIcon icon={faUser}/></div>
                 <span style={styles.dropdownArrow}><FontAwesomeIcon icon={faChevronDown}/></span>
             </div>
             <div style={styles.icons}>
