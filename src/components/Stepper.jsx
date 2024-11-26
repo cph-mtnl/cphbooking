@@ -6,7 +6,7 @@ function Stepper() {
   const [active, setActive] = useState(1);
 
   return (
-    <div style={{width: "70%"}}>
+    <div style={{width: "70%", paddingBottom: "40px", paddingTop: "20px"}}>
     <StyledStepper active={active} onStepClick={setActive} color="#6eb47e">
       <MantineStepper.Step label="Log ind"/>
       <MantineStepper.Step label="Book lokale"/>

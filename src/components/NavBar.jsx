@@ -23,8 +23,8 @@ export default function NavBar(){
         <div style={navBarStyle}>
       <Avatar style={avatarStyle} variant="transparent" radius="xl" size="xl" color="#6eb47e" src="" />
 
-        <Link style={navBarStyle} to="/_layout/booking">Ny booking</Link>
-        <Link style={navBarStyle} to="/_layout/myBookings">Mine bookinger</Link>
+        <Link style={navBarStyle} to="/booking">Ny booking</Link>
+        <Link style={navBarStyle} to="/myBookings">Mine bookinger</Link>
 
         <div style={{marginLeft: "auto"}}>
           <Link style={navBarStyle} to="/studentTeacher">Log ud</Link>

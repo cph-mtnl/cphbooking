@@ -1,12 +1,25 @@
-import { Calendar } from '@mantine/dates';
-import React, { useState } from 'react'
-import dayjs from 'dayjs';
+import React from 'react';
 import { DatePicker } from '@mantine/dates';
+import { Input } from '@mantine/core';
+import './BookingStyles.css';
 
-export default function NewCalendar({date, setDate}) {
-      
-    return (
-      <DatePicker value={date} onChange={setDate} />
-    );
+export default function NewCalendar({ date, setDate }) {
+  return (
+    <Input.Wrapper
+      id="date-picker"
+      label="Vælg dato"
+      withAsterisk
+      className="calendar-container"
+    >
+      <DatePicker
+        id="date-picker"
+        className="calendar"
+        value={date}
+        onChange={setDate}
+        placeholder="Vælg dato"
+      />
+    </Input.Wrapper>
+  );
 }
+
 

@@ -3,10 +3,10 @@ import { Combobox, Input, InputBase, useCombobox } from '@mantine/core';
 import classes from './DropdownPositionStyles.module.css';
 
 const lokaler = [
-  'Lokale 3.08',
-  'Lokale 2.88',
   'Lokale 2.13',
+  'Lokale 2.88',
   'Lokale 3.05',
+  'Lokale 3.08',
   'Lokale 3.14',
 ];
 
