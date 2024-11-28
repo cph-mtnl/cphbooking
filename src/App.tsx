@@ -33,7 +33,12 @@ export default function App() {
   return (
     <MantineProvider>
       <ModalsProvider>
-        <RouterProvider basepath="/cphbooking" router={router} context={context} />
+        <RouterProvider 
+          router={router} 
+          context={context} 
+          basepath="/cphbooking" 
+
+        />
       </ModalsProvider>
     </MantineProvider>
   );
