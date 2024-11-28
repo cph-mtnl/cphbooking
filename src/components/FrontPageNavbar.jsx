@@ -87,7 +87,7 @@ function FrontPageNavbar() {
             </div>
 
             <div style={styles.rightSection}>
-            <Link to={"/studentTeacher"} target='_blank'>
+            <Link to={"/studentTeacher"}>
             <button
             style={styles.BookLokaleButton}
             onMouseEnter={() => setIsHovered(true)}
