@@ -12,6 +12,7 @@ import { combineSchedules } from '../chatgpt-utils/combine-schedule';
 import { calculateBooking } from '../chatgpt-utils/calculate-booking';
 import { Modal, Button } from '@mantine/core';
 import '../components/ButtonStyles.css';
+import '../components/BookingStyles.css';
 
 
 export const Route = createLazyFileRoute('/_layout/booking')({

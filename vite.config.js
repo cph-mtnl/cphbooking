@@ -6,4 +6,7 @@ import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 export default defineConfig({
   base: "/cphbooking",
   plugins: [TanStackRouterVite(), react()],
+  cssCodeSplit: false // Prevent CSS from being split into chunks
 });
+
+
