@@ -1,18 +1,48 @@
 import React from "react";
-import "./Schedule.css"; // CSS file for styling
 
 // ChatGPT Magic
 const Schedule = ({value}) => {
   // Sample data for busy slots
+
+  const styles = {
+    container: {
+      margin: '20px',
+      fontFamily: 'Arial, sans-serif',
+      backgroundColor: '#F5F3F3',
+      color: 'black',
+      fontWeight: 200,
+      fontSize: '14px',
+      width: '70%',
+    },
+    table: {
+      borderCollapse: 'collapse',
+      width: '100%',
+      textAlign: 'center',
+    },
+    tableCell: {
+      border: '0.5px solid black',
+      padding: '15px',
+      fontWeight: 200,
+    },
+    tableHeader: {
+      backgroundColor: '#ffeb99',
+      position: 'sticky',
+      top: 0,
+      padding: '15px',
+    },
+    busySlot: {
+      backgroundColor: '#ff6b6b',
+    },
+  }; 
   
 
   // Generate table rows dynamically
   const times = Array.from({ length: 11 }, (_, i) => i + 8); // 8:00 to 18:00
 
   return (
-    <div className="schedule-container">
+    <div style={styles.schedule-container}>
       {/* Containeren til skemaet med afrundede hjørner og styling */}
-      <table className="schedule-table">
+      <table style={styles.schedule-table}>
         <thead>
           {/* Tabelrow, der indeholder tidslabels */}
           <tr>
@@ -37,7 +67,7 @@ const Schedule = ({value}) => {
               {times.map((time) => (
                 <td
                   key={time}
-                  className={
+                  style={styles.
                     value[room].includes(time) ? "busy-slot" : ""
                   }
                   /* Tilføjer klassen "busy-slot", hvis lokalet er optaget på dette tidspunkt */
