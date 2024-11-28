@@ -8,11 +8,11 @@
     transition: all 0.3s ease;
 }
 
-.placement{
+/* .placement{
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}  */
 
 .whiteBtn:hover {
     background-color: #6eb47e;
@@ -39,8 +39,8 @@
     background-color: transparent;
     border: none;
     color: white; 
-    position: fixed;
-    /* left: 550px; */
+    /* position: fixed; */
+    left: -50px;
     font-weight: 300;
 }
 
