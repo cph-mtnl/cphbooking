@@ -6,6 +6,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 /* .placement{
@@ -27,6 +28,8 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
+
 }
 
 .greenBtn:hover {
