@@ -1,4 +1,4 @@
-import { createLazyFileRoute, Link } from '@tanstack/react-router';
+import { createLazyFileRoute, Link, useRouteContext } from '@tanstack/react-router';
 import NewCalendar from '../components/NewCalendar';
 import Stepper from '../components/Stepper';
 import NumberInput from '../components/NumberInput';
@@ -30,6 +30,8 @@ function RouteComponent() {
   const [selectedRoom, setSelectedRoom] = useState('');
   const [modalOpened, setModalOpened] = useState(false);
   const [bookingInfo, setBookingInfo] = useState(null);
+  const context = useRouteContext({ from: "/_layout/booking" });
+  console.log(context); 
 
   useEffect(() => {
     getBookings();
@@ -95,6 +97,10 @@ function RouteComponent() {
       setBookingInfo({
         booking_date: dayjs(datePicked).format('YYYY-MM-DD'),
         schedule: data,
+        startTime: startTime, 
+        endTime: endTime,
+        selectedRoom: selectedRoom,
+        email: context.userInfo?.email,     
       });
       setModalOpened(true);
 
@@ -105,6 +111,7 @@ function RouteComponent() {
   }
 
   async function confirmBooking() {
+    console.log(bookingInfo); 
     try {
       const response = await fetch(`${SUPABASE_URL}/rest/v1/bookings`, {
         method: 'POST',
@@ -116,6 +123,7 @@ function RouteComponent() {
         body: JSON.stringify(bookingInfo),
       });
 
+      console.log(response); 
       if (!response.ok) {
         throw new Error(`Fejl ved oprettelse af booking: ${response.status}`);
       }
@@ -207,7 +215,9 @@ function RouteComponent() {
         <b>Tidsrum:</b> {startTime} - {endTime}
       </p>
       <p>
-        <b>Gæst:</b> 
+        {/* <b>Email:</b> {context.userInfo} */}
+        <b>Email:</b> {context.userInfo?.email }
+
       </p>
     </div>
   </div>

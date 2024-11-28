@@ -40,7 +40,7 @@
     border: none;
     color: white; 
     position: fixed;
-    left: 400px;
+    left: 550px;
     font-weight: 300;
 }
 
@@ -52,3 +52,19 @@
 .fa-chevron-left{
     padding-right: 10px;
 }
+
+  /* Knap til at slette */
+  .deleteButton {
+    background-color: white;
+    color: #6eb47e;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .deleteButton:hover {
+    background-color: #ff6b6b;
+    color: white;
+  }

@@ -1,14 +1,21 @@
 import { TextInput, PasswordInput, Button } from "@mantine/core";
 import { Container } from "@mantine/core";
 import { useState } from "react";
-import { Link, useRouteContext } from "@tanstack/react-router";
+import { Link, useNavigate, useRouteContext } from "@tanstack/react-router";
 import styles from "./LoginForm.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import '../components/ButtonStyles.css';
+import { createClient } from "@supabase/supabase-js";
+
+const SUPABASE_URL = 'https://czvtumfwyoalvjjriqjd.supabase.co';
+const PUBLIC_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6dnR1bWZ3eW9hbHZqanJpcWpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE1MDI4NzAsImV4cCI6MjA0NzA3ODg3MH0.NEY9zyupKwJFon_TWRWVrlTM8Yd_UXAjB-YhbeAIelE';
+
+const supabase = createClient(SUPABASE_URL, PUBLIC_ANON_KEY);
 
 export default function LoginForm() {
   const context = useRouteContext({ from: "/loginStudent" });
+  const navigate = useNavigate({from: "/loginStudent"}); 
   const [name, setName] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -39,22 +46,36 @@ export default function LoginForm() {
       password,
     });
 
+   
+
     // 1. Gemme info på brugeren
     const userInfo = {
       name,
-      email,
+      email:data.user.email,
     };
+
+    console.log("login", data.user.email);
 
     context.setUserInfo(userInfo);
 
+    // alert("Du er nu logget ind!");
+    console.log("Brugerdata:", data);
+
+    // Her kan du redirecte eller gemme brugerinfo
+  //   context.navigate("/booking");
+  // } catch (error) {
+  //   console.error(error.message);
+  //   alert("Fejl: " + error.message);
+  // }
+
     // 2. Siden ændrer sig
-    // Redirecter til /index
-    context.navigate("/booking");
+    // Redirecter til /booking 
+    // context.navigate("/booking");
+    navigate({to: "/booking"}); 
   }
 
   return (
     <div>
-
       {/* Log ind formen, som vi kalder container */}
       <Container className={styles.container}>
 

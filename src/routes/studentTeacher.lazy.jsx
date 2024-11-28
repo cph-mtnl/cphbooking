@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { createLazyFileRoute, useRouteContext } from '@tanstack/react-router'
 import { Container, Button } from '@mantine/core'
 import styles from '../components/LoginForm.module.css'
 import '../components/ButtonStyles.css'
@@ -14,6 +14,8 @@ export const Route = createLazyFileRoute('/studentTeacher')({
 })
 
 function RouteComponent() {
+  const context = useRouteContext({ from: "/studentTeacher" });
+
   return (
     <Container className={styles.container}>
       <h1>BOOK LOKALE</h1>
